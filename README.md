@@ -1,4 +1,14 @@
-# SpaceX
+# SpaceX Launches 🚀
+
+## Description
+
+This is a simple and quick practice carried out with Angular 16 using Signals using the Space Tailwind is also used to rectify application styles.
+
+[You can view the app by clicking on this link.]( )
+<hr>
+<img width="35%" src="./src/assets/Space_X.jpg"  alt="image app" />
+
+<br>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
@@ -25,3 +35,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+

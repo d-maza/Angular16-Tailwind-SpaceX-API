@@ -1,0 +1,52 @@
+<h1 class="text-4xl text-center mt-10 font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"> <span
+    class="text-transparent bg-clip-text bg-gradient-to-l to-cyan-300 from-sky-500">SpaceX Launches </span> 🚀</h1>
+
+<div class="flex justify-center mb-10">
+  <div class="grid sm:grid-cols-5 gap-10 mt-16">
+    <ng-container *ngFor="let item of launches">
+
+      <div id="card" *ngIf="item.links.mission_patch_small"
+        class="p-8 rounded-lg mx-auto bg-slate-950 hover:shadow-xl hover:shadow-cyan-300 hover:scale-105 text-gray-300 hover:text-cyan-300 hover:transition-all"
+        (click)="showDetails(item)">
+        <img src={{item.links.mission_patch_small}} alt={{item.mission_id}} width="200px">
+        <p class="text-center mt-4 text-ellipsis  font-semibold">{{ (item.mission_name.length > 20) ?
+          item.mission_name.substring(0, 15) + '...': item.mission_name }}</p>
+      </div>
+
+      <dialog class="p-10 rounded-xl bg-slate-200" *ngIf="launch() as launch">
+        <div>
+          <a (click)="closed()" tabindex="0"
+            class="float-end rounded-full px-2 bg-slate-400 hover:ring-1 hover:bg-slate-600 hover:text-gray-50 hover:font-semibold">X</a>
+        </div>
+
+        <h1 class="text-2xl text-blond mb-5">{{launch.mission_name}}</h1>
+        <ul>
+          <li class="mt-2"><span>Launch date: </span> <b>{{launch.launch_date_utc | date}}</b></li>
+          <li class="mt-2"><span>Launch site: </span> <b>{{launch.launch_site.site_name_long}}</b></li>
+          <li class="mt-2"><span>Flight number </span> {{launch.flight_number }}</li>
+          <li class="mt-2"><span>Year: </span> <b> {{launch.launch_year}} </b></li>
+          <li class="mt-2"><span>Launch success: </span> <b>{{launch.launch_success ? '👎' : '🚀'}}</b></li>
+          <li class="mt-2"><span>Rocket name: </span> <b>{{launch.rocket.rocket_name}}</b> </li>
+          <li class="mt-2"><span>Rocket type: </span> <b>{{launch.rocket.rocket_type}}</b></li>
+          <li class="mt-2"><span>Details: </span><b>{{launch.details}}</b></li>
+          <li class="mt-2">
+            <span>Wikipedia: </span>
+            <a href={{launch.links.wikipedia}} target="_blank" class="text-blue-500 hover:underline">Read more</a>
+          </li>
+          <li>
+            <span>Video: </span>
+            <a href={{launch.links.video_link}} target="_blank" class="text-blue-500 hover:underline">Watch</a>
+          </li>
+          <li>
+            <span>Article: </span>
+            <a href={{launch.links.article_link}} target="_blank" class="text-blue-500 hover:underline">Read</a>
+          </li>
+          <li>
+            <span>Reddit: </span>
+            <a href={{launch.links.reddit_launch}} target="_blank" class="text-blue-500 hover:underline">Launch</a>
+          </li>
+        </ul>
+      </dialog>
+    </ng-container>
+  </div>
+</div>

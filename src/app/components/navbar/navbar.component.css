@@ -1,0 +1,10 @@
+.active{
+  --tw-text-opacity: 1;
+  color: rgb(103 232 249 / var(--tw-text-opacity));
+  font-weight: bold;
+  border-bottom: 2px solid rgb(15, 189, 241);
+}
+
+li{
+  cursor: pointer;
+}
